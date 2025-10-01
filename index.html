@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Калькулятор дохода</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a2c3b3a5e6.js" crossorigin="anonymous"></script>
+</head>
+<body class="dark">
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">Тепло</div>
+    <nav class="nav">
+      <a href="#">Главная</a>
+      <a href="#">О нас</a>
+      <a href="#">Контакты</a>
+      <button id="themeToggle" class="btn small">Светлая тема</button>
+    </nav>
+  </header>
+
+  <!-- Calculator Section -->
+  <section class="calculator">
+    <h2>Калькулятор дневного дохода</h2>
+    
+    <h3>Поступления</h3>
+    <div class="inputs">
+      <label>ККМ: <input type="number" id="kass" value="0"></label>
+      <label>Наличные: <input type="number" id="cash" value="0"></label>
+      <label>QR код: <input type="number" id="qr" value="0"></label>
+    </div>
+
+    <h3>Расходы</h3>
+    <div class="expense-input">
+      <input type="number" id="expenseValue" placeholder="Введите расход">
+      <button id="addExpense" class="btn">Добавить</button>
+    </div>
+
+    <ul id="expenseList"></ul>
+    <p id="totalExpenses">Общие расходы: 0</p>
+
+    <button id="calculate" class="btn">Посчитать чистый доход</button>
+    <div id="result"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Сакиев Эмир</p>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
