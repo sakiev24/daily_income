@@ -52,7 +52,7 @@ menuToggle.addEventListener('click', () => {
     nav.style.position = 'absolute';
     nav.style.top = '60px';
     nav.style.right = '20px';
-    nav.style.background = 'rgba(0,0,0,0.9)';
+    nav.style.background = 'gray';
     nav.style.padding = '20px';
     nav.style.borderRadius = '12px';
   }
