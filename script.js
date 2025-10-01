@@ -1,58 +1,59 @@
-let expenses = [];
+const themeToggle = document.querySelector('.theme-toggle');
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  themeToggle.textContent = document.body.classList.contains('dark') ? "☀️" : "🌙";
+});
 
-// Добавление расходов
-document.getElementById("addExpense").addEventListener("click", () => {
-  let expenseInput = document.getElementById("expenseValue");
-  let value = parseFloat(expenseInput.value);
+const addExpenseBtn = document.getElementById('add-expense');
+const expensesDiv = document.getElementById('expenses');
 
-  if (!isNaN(value) && value > 0) {
-    expenses.push(value);
-    expenseInput.value = "";
-    renderExpenses();
+addExpenseBtn.addEventListener('click', () => {
+  const div = document.createElement('div');
+  div.className = 'expense-input';
+  div.innerHTML = `
+    <input type="number" placeholder="Расход">
+    <button class="remove-expense">×</button>
+  `;
+  expensesDiv.appendChild(div);
+});
+
+expensesDiv.addEventListener('click', (e) => {
+  if (e.target.classList.contains('remove-expense')) {
+    e.target.parentElement.remove();
   }
 });
 
-function renderExpenses() {
-  let list = document.getElementById("expenseList");
-  list.innerHTML = "";
+document.getElementById('calculate').addEventListener('click', () => {
+  const cash = +document.getElementById('cash').value || 0;
+  const kkm = +document.getElementById('kkm').value || 0;
+  const qr = +document.getElementById('qr').value || 0;
 
-  expenses.forEach((exp, index) => {
-    let li = document.createElement("li");
-    li.textContent = `Расход ${index + 1}: ${exp} сом`;
-    list.appendChild(li);
+  let expenses = 0;
+  document.querySelectorAll('#expenses input').forEach(input => {
+    expenses += +input.value || 0;
   });
 
-  let total = expenses.reduce((a, b) => a + b, 0);
-  document.getElementById("totalExpenses").innerText =
-    `Общие расходы: ${total} сом`;
-}
+  const totalIncome = cash + kkm + qr;
+  const netIncome = totalIncome - expenses;
 
-// Подсчёт дохода
-document.getElementById("calculate").addEventListener("click", () => {
-  let kass = parseFloat(document.getElementById("kass").value) || 0;
-  let cash = parseFloat(document.getElementById("cash").value) || 0;
-  let qr = parseFloat(document.getElementById("qr").value) || 0;
-
-  let totalIncome = kass + cash + qr;
-  let totalExpenses = expenses.reduce((a, b) => a + b, 0);
-
-  let netIncome = totalIncome - totalExpenses;
-
-  document.getElementById("result").innerText =
-    `Чистый доход за день: ${netIncome} сом`;
+  document.getElementById('result').innerText = 
+    `Общий доход: ${totalIncome} сом\nЧистыми: ${netIncome} сом`;
 });
 
-// Переключатель темы
-document.getElementById("themeToggle").addEventListener("click", () => {
-  let body = document.body;
+const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.nav');
 
-  if (body.classList.contains("dark")) {
-    body.classList.remove("dark");
-    body.classList.add("light");
-    document.getElementById("themeToggle").innerText = "Тёмная тема";
+menuToggle.addEventListener('click', () => {
+  if (nav.style.display === 'flex') {
+    nav.style.display = 'none';
   } else {
-    body.classList.remove("light");
-    body.classList.add("dark");
-    document.getElementById("themeToggle").innerText = "Светлая тема";
+    nav.style.display = 'flex';
+    nav.style.flexDirection = 'column';
+    nav.style.position = 'absolute';
+    nav.style.top = '60px';
+    nav.style.right = '20px';
+    nav.style.background = 'rgba(0,0,0,0.9)';
+    nav.style.padding = '20px';
+    nav.style.borderRadius = '12px';
   }
 });
