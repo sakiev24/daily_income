@@ -32,7 +32,7 @@ body.dark .header {
   font-weight: 600;
 }
 
-.nav {
+/* .nav {
   display: flex;
   gap: 20px;
 }
@@ -46,7 +46,7 @@ body.dark .header {
 
 .nav a:hover {
   color: #0071e3;
-}
+} */
 
 .theme-toggle {
   background: none;
@@ -55,11 +55,11 @@ body.dark .header {
   cursor: pointer;
 }
 
-.menu-toggle {
+/* .menu-toggle {
   display: none;
   font-size: 24px;
   cursor: pointer;
-}
+} */
 
 .calculator {
   max-width: 500px;
@@ -158,4 +158,20 @@ body.dark .footer {
     padding: 25px 20px;
     width: 95%;
   }
+    .btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+    .inputs input,
+    .expense-input input {
+        padding: 12px;
+        font-size: 14px;
+    }
+    #result {
+        font-size: 16px;
+    }
+    .footer {
+        padding: 20px 10px;
+        font-size: 12px;
+    }
 }

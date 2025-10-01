@@ -40,20 +40,20 @@ document.getElementById('calculate').addEventListener('click', () => {
     `Общий доход: ${totalIncome} сом\nЧистыми: ${netIncome} сом`;
 });
 
-const menuToggle = document.querySelector('.menu-toggle');
-const nav = document.querySelector('.nav');
+// const menuToggle = document.querySelector('.menu-toggle');
+// const nav = document.querySelector('.nav');
 
-menuToggle.addEventListener('click', () => {
-  if (nav.style.display === 'flex') {
-    nav.style.display = 'none';
-  } else {
-    nav.style.display = 'flex';
-    nav.style.flexDirection = 'column';
-    nav.style.position = 'absolute';
-    nav.style.top = '60px';
-    nav.style.right = '20px';
-    nav.style.background = 'gray';
-    nav.style.padding = '20px';
-    nav.style.borderRadius = '12px';
-  }
-});
+// menuToggle.addEventListener('click', () => {
+//   if (nav.style.display === 'flex') {
+//     nav.style.display = 'none';
+//   } else {
+//     nav.style.display = 'flex';
+//     nav.style.flexDirection = 'column';
+//     nav.style.position = 'absolute';
+//     nav.style.top = '60px';
+//     nav.style.right = '20px';
+//     nav.style.background = 'gray';
+//     nav.style.padding = '20px';
+//     nav.style.borderRadius = '12px';
+//   }
+// });
